@@ -22,7 +22,8 @@ spring:
       enabled: true
       path: /h2-console
 
-catalog-message: hello from catalog-service
+application:
+  message: hello from catalog-service
 
 management:
   endpoints:
