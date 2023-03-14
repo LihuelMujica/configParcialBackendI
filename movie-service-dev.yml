@@ -22,9 +22,10 @@ spring:
     console:
       enabled: true
       path: /h2-console
-eureka:
-  client:
-    service-url: http://localhost:8761
+  eureka:
+    client:
+      service-url:
+        default-zone: http://localhost:8761/eureka
 
 message: hello from movie-service
 
