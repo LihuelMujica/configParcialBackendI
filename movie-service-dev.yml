@@ -24,7 +24,7 @@ spring:
       path: /h2-console
 eureka:
   client:
-    service-url: http://localhost:8761/eureka
+    service-url: http://localhost:8761
 
 message: hello from movie-service
 
