@@ -1,1 +1,13 @@
-global-message: Hello server
+spring:
+  zipkin:
+    enabled: true
+    baseUrl: http://zipkin:9411
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
