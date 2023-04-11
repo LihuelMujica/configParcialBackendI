@@ -1,36 +1,29 @@
 server:
-  port: 8001
+  port: 8082
 
 spring:
-  application:
-    name: movie-service
+  rabbitmq:
+    username: guest
+    password: guest
+    host: rabbitmq
+    port: 5672
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: sa
+    url: jdbc:mysql://mysqldb:3306/Movie
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-        format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-  eureka:
-    client:
-      service-url:
-        default-zone: http://localhost:8761/eureka
 
-message: hello from movie-service
+queue:
+  movie:
+    name: Movie
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+info:
+  app:
+    name: ${spring.application.name}
+    description: Movie Service.
+    version: 1.0
